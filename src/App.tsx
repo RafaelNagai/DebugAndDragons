@@ -1,4 +1,3 @@
-import "./App.css";
 import { PixelContainer } from "./core/components/PixelContainer";
 
 function App() {

@@ -7,68 +7,56 @@
 
 @layer components {
   .pixel-box {
-    position: relative;
+    @apply relative;
     margin: calc(var(--thickness) * 2) var(--thickness);
   }
 
   .pixel-box::before {
     content: "";
+    @apply absolute z-1;
     width: calc(100% - (var(--thickness) * 2));
     height: var(--thickness);
-    position: absolute;
     background-color: black;
-    z-index: 1;
-    box-sizing: content-box;
     left: var(--thickness);
     top: calc(var(--thickness) * -1);
   }
 
   .pixel-box::after {
     content: "";
+    @apply absolute z-1;
     width: calc(100% - (var(--thickness) * 2));
     height: var(--thickness);
-    position: absolute;
     background-color: black;
-    z-index: 1;
-    box-sizing: content-box;
     left: var(--thickness);
     bottom: calc(var(--thickness) * -1);
   }
 
   .pixel-box__container {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    height: 100%;
+    @apply flex flex-wrap w-full h-full relative;
     background-color: var(--color);
-    position: relative;
     border-left: var(--thickness) solid black;
     border-right: var(--thickness) solid black;
   }
 
   .pixel-box__container::after {
+    @apply absolute z-1 box-content;
     content: "";
     width: calc(var(--thickness) * 1.2);
     height: calc(100% - (var(--thickness) * 2));
     background-color: var(--color);
     top: var(--thickness);
     left: calc(var(--thickness) * -2);
-    position: absolute;
-    z-index: 1;
     border-left: var(--thickness) solid black;
-    box-sizing: content-box;
   }
 
   .pixel-box__container::before {
     content: "";
+    @apply absolute z-1 box-content;
     width: calc(var(--thickness) * 1.2);
     height: calc(100% - (var(--thickness) * 2));
     background-color: var(--color);
     top: var(--thickness);
     right: calc(var(--thickness) * -2);
-    position: absolute;
-    z-index: 1;
     border-right: var(--thickness) solid black;
-    box-sizing: content-box;
   }
 }
