@@ -1,4 +1,4 @@
-import { PixelContainer } from "./core/components/PixelContainer";
+import { PixelContainer } from "./core/components/PixelContainer/PixelContainer";
 
 function App() {
   return (
