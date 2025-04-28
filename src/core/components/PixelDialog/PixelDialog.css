@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+:root {
+  --thickness: 5px;
+  --color: purple;
+}
+
+@layer components {
+  .pixel-dialog {
+    @apply relative pb-[19px];
+  }
+
+  .pixel-dialog__root {
+    @apply absolute z-10 box-content w-[5px] h-[20px] bottom-0;
+    background-color: var(--color);
+    border-bottom: var(--thickness) solid
+      color-mix(in srgb, var(--color) 50%, black 50%);
+  }
+
+  .pixel-dialog__root.pixel-dialog__root--left {
+    border-left: var(--thickness) solid
+      color-mix(in srgb, var(--color) 50%, black 50%);
+  }
+
+  .pixel-dialog__root.pixel-dialog__root--right {
+    border-right: var(--thickness) solid
+      color-mix(in srgb, var(--color) 50%, black 50%);
+  }
+
+  .pixel-dialog__root::before {
+    @apply absolute w-[5px] h-[15px];
+    bottom: var(--thickness);
+    background-color: var(--color);
+    border-bottom: var(--thickness) solid
+      color-mix(in srgb, var(--color) 50%, black 50%);
+    content: "";
+  }
+
+  .pixel-dialog__root::after {
+    @apply absolute w-[5px] h-[10px];
+    bottom: calc(var(--thickness) * 2);
+    background-color: var(--color);
+    border-bottom: var(--thickness) solid
+      color-mix(in srgb, var(--color) 50%, black 50%);
+    content: "";
+  }
+
+  .pixel-dialog__root.pixel-dialog__root--left::before {
+    left: var(--thickness);
+  }
+
+  .pixel-dialog__root.pixel-dialog__root--right::before {
+    right: var(--thickness);
+  }
+
+  .pixel-dialog__root.pixel-dialog__root--left::after {
+    left: calc(var(--thickness) * 2);
+  }
+
+  .pixel-dialog__root.pixel-dialog__root--right::after {
+    right: calc(var(--thickness) * 2);
+  }
+
+  .pixel-dialog__root--left {
+    @apply left-[40px];
+  }
+
+  .pixel-dialog__root--right {
+    @apply right-[40px];
+  }
+}
