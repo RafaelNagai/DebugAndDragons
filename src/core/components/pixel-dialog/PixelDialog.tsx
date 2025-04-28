@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { PixelContainer } from "../PixelContainer/PixelContainer";
+import { PixelContainer } from "../pixel-container/PixelContainer";
 import "./PixelDialog.css";
 
 type PixelDialogProps = {
