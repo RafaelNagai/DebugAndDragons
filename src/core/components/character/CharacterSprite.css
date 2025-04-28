@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+.character-sprite {
+  @apply relative w-full h-full;
+}
+
+.character-sprite--idle {
+}
+
+.character-sprite--attack {
+}
+
+.character-sprite--damaged {
+}
+
+.character-sprite--dead {
+}
