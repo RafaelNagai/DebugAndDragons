@@ -1,17 +1,23 @@
 @import "tailwindcss";
 
-.character-sprite {
-  @apply relative w-full h-full;
-}
+@layer components {
+  .character-sprite {
+    @apply relative min-h-[100px] min-w-[100px];
+  }
 
-.character-sprite--idle {
-}
+  .character-sprite--idle {
+    @apply absolute left-0 top-0 w-full object-contain;
+  }
 
-.character-sprite--attack {
-}
+  .character-sprite--attack {
+    @apply absolute left-0 top-0 w-full object-contain;
+  }
 
-.character-sprite--damaged {
-}
+  .character-sprite--damaged {
+    @apply absolute left-0 top-0 w-full object-contain;
+  }
 
-.character-sprite--dead {
+  .character-sprite--dead {
+    @apply absolute left-0 top-0 w-full object-contain;
+  }
 }
