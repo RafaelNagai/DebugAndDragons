@@ -18,7 +18,15 @@ export const PixelDialog = ({
   const sideClass =
     side === "left" ? "pixel-dialog__root--left" : "pixel-dialog__root--right";
   return (
-    <div className="pixel-dialog">
+    <div
+      className="pixel-dialog"
+      style={
+        {
+          "--thickness": thickness,
+          "--color": color,
+        } as React.CSSProperties
+      }
+    >
       <PixelContainer thickness={thickness} color={color}>
         {children}
       </PixelContainer>

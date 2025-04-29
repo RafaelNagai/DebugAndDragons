@@ -7,11 +7,14 @@
 
 @layer components {
   .pixel-dialog {
-    @apply relative pb-[19px];
+    @apply relative;
+    padding-bottom: calc(var(--thickness) * 4 - 1px);
   }
 
   .pixel-dialog__root {
-    @apply absolute z-10 box-content w-[5px] h-[20px] bottom-0;
+    @apply absolute z-10 box-content bottom-0;
+    width: var(--thickness);
+    height: calc(var(--thickness) * 4);
     background-color: var(--color);
     border-bottom: var(--thickness) solid
       color-mix(in srgb, var(--color) 50%, black 50%);
@@ -28,7 +31,9 @@
   }
 
   .pixel-dialog__root::before {
-    @apply absolute w-[5px] h-[15px];
+    @apply absolute;
+    width: var(--thickness);
+    height: calc(var(--thickness) * 3);
     bottom: var(--thickness);
     background-color: var(--color);
     border-bottom: var(--thickness) solid
@@ -37,7 +42,9 @@
   }
 
   .pixel-dialog__root::after {
-    @apply absolute w-[5px] h-[10px];
+    @apply absolute;
+    width: var(--thickness);
+    height: calc(var(--thickness) * 3);
     bottom: calc(var(--thickness) * 2);
     background-color: var(--color);
     border-bottom: var(--thickness) solid
