@@ -5,6 +5,12 @@ function App() {
   return (
     <div className="h-screen w-screen relative">
       <p>ABC</p>
+      <PixelDialog thickness="7px" color="yellow">
+        <div className="p-4">
+          <h1>Pixel Dialog</h1>
+          <p>This is a pixel dialog example.</p>
+        </div>
+      </PixelDialog>
       <PixelDialog thickness="7px" color="blue" targetId="pixel-dialog">
         <div className="p-4">
           <h1>Pixel Dialog</h1>

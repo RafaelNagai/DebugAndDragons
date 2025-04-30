@@ -50,9 +50,9 @@ export const PixelDialog = ({
             }px;`
           );
         }
-        setIsOpen(true);
       }
     }
+    setIsOpen(true);
   }, [targetId, isOpen]);
 
   return (
