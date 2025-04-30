@@ -1,4 +1,7 @@
-import { CharacterSprite } from "./core/components/character/CharacterSprite";
+import {
+  CharacterSprite,
+  SpriteDirection,
+} from "./core/components/character/CharacterSprite";
 import { PixelDialog } from "./core/components/pixel-dialog/PixelDialog";
 
 function App() {
@@ -37,6 +40,7 @@ function App() {
         damaged={"/characters/warrior/warrior-damaged.png"}
         dead={"/characters/warrior/warrior-die.png"}
         className="w-56 h-56 absolute bottom-0 right-0"
+        direction={SpriteDirection.left}
         id="second-pixel-dialog"
       />
     </div>
