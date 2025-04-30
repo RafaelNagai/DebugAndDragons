@@ -1,3 +1,4 @@
+import { ArrowDownAnimated } from "../arrow-down-animated/ArrowDownAnimated";
 import { TextAnimated } from "../texts/TextAnimated";
 import { PixelDialogContainer } from "./PixelDialogContainer";
 
@@ -44,9 +45,14 @@ export const PixelDialog = ({
       targetId={targetId}
       className={`min-w-xs max-w-2xs ${className}`}
     >
-      <div className="p-4 min-h-14">
-        {title && <h1 className="text-2xl font-bold">{title}</h1>}
-        <TextAnimated text={text} />
+      <div className="flex w-full flex-col items-start justify-center">
+        <div className="px-4 pt-4 min-h-14">
+          {title && <h1 className="text-2xl font-bold">{title}</h1>}
+          <TextAnimated text={text} />
+        </div>
+        <div className="w-full flex justify-end p-2">
+          <ArrowDownAnimated />
+        </div>
       </div>
     </PixelDialogContainer>
   );

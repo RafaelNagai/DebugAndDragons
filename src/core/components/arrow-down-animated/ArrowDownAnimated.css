@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@layer components {
+  .arrow-down-animated {
+    @apply w-6 h-6 animate-[arrow-down-animated_1s_ease-in-out_infinite] bg-contain;
+    background-image: url("icons/type_down_1_icon.png");
+  }
+
+  .arrow-down-animated--pressed {
+    @apply animate-none;
+    background-image: url("icons/type_down_1_icon.png");
+  }
+
+  @keyframes arrow-down-animated {
+    0% {
+      background-image: url("icons/type_down_1_icon.png");
+    }
+    49% {
+      background-image: url("icons/type_down_1_icon.png");
+    }
+    50% {
+      background-image: url("icons/type_down_2_icon.png");
+    }
+    100% {
+      background-image: url("icons/type_down_2_icon.png");
+    }
+  }
+}
