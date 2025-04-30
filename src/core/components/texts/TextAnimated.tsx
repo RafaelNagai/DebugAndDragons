@@ -3,9 +3,14 @@ import { useEffect, useState } from "react";
 type TextAnimatedProps = {
   text: string;
   className?: string;
+  onFinished?: () => void;
 };
 
-export const TextAnimated = ({ text, className }: TextAnimatedProps) => {
+export const TextAnimated = ({
+  text,
+  className,
+  onFinished: onComplete,
+}: TextAnimatedProps) => {
   const [textState, setTextState] = useState<string>("");
 
   useEffect(() => {
@@ -15,18 +20,23 @@ export const TextAnimated = ({ text, className }: TextAnimatedProps) => {
       index++;
       if (index > text.length) {
         clearInterval(intervalId);
+        onComplete?.();
       }
     }, 100);
 
-    document.addEventListener("keydown", (event) => {
+    const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Enter" || event.key === " ") {
         clearInterval(intervalId);
         setTextState(text);
+        onComplete?.();
       }
-    });
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
 
     return () => {
       clearInterval(intervalId);
+      document.removeEventListener("keydown", handleKeyDown);
     };
   }, [text]);
 

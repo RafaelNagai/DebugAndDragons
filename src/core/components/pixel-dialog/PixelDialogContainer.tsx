@@ -29,8 +29,8 @@ export const PixelDialogContainer = ({
   const [sideScreen, setSideScreen] = useState(side ?? SideScreen.LEFT);
   const sideClass =
     sideScreen === SideScreen.LEFT
-      ? "pixel-dialog__root--left"
-      : "pixel-dialog__root--right";
+      ? "pixel-dialog-container__root--left"
+      : "pixel-dialog-container__root--right";
 
   useEffect(() => {
     if (targetId) {
@@ -64,12 +64,12 @@ export const PixelDialogContainer = ({
   return (
     <div
       ref={dialogRef}
-      className={`pixel-dialog--float ${targetId ? "fixed" : "flex"} ${
-        isOpen ? "" : "hidden"
-      }`}
+      className={`pixel-dialog-container--float ${
+        targetId ? "fixed" : "flex"
+      } ${isOpen ? "" : "hidden"}`}
     >
       <div
-        className={`pixel-dialog ${className}`}
+        className={`pixel-dialog-container ${className}`}
         style={
           {
             "--thickness": thickness,
@@ -81,7 +81,7 @@ export const PixelDialogContainer = ({
           {children}
         </PixelContainer>
         <div
-          className={`pixel-dialog__root ${sideClass}`}
+          className={`pixel-dialog-container__root ${sideClass}`}
           style={
             {
               "--thickness": thickness,

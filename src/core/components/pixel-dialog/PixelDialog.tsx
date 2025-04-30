@@ -1,6 +1,8 @@
+import { useEffect, useState } from "react";
 import { ArrowDownAnimated } from "../arrow-down-animated/ArrowDownAnimated";
 import { TextAnimated } from "../texts/TextAnimated";
 import { PixelDialogContainer } from "./PixelDialogContainer";
+import "./PixelDialog.css";
 
 type PixelDialogProps = {
   title?: string;
@@ -8,6 +10,7 @@ type PixelDialogProps = {
   targetId?: string;
   type?: DialogType;
   className?: string;
+  onComplete?: () => void;
 };
 
 export enum DialogType {
@@ -21,7 +24,10 @@ export const PixelDialog = ({
   targetId,
   type,
   className,
+  onComplete,
 }: PixelDialogProps) => {
+  const [textDone, setTextDone] = useState(false);
+
   const rootStyles = getComputedStyle(document.documentElement);
   let baseColor = "";
   switch (type) {
@@ -38,19 +44,35 @@ export const PixelDialog = ({
       break;
   }
 
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Enter" || event.key === " ") {
+        if (textDone) onComplete?.();
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [textDone]);
+
+  const onTextFinished = () => {
+    setTextDone(true);
+  };
+
   return (
     <PixelDialogContainer
       thickness="7px"
       color={baseColor}
       targetId={targetId}
-      className={`min-w-xs max-w-2xs ${className}`}
+      className={`pixel-dialog ${className}`}
     >
-      <div className="flex w-full flex-col items-start justify-center">
-        <div className="px-4 pt-4 min-h-14">
-          {title && <h1 className="text-2xl font-bold">{title}</h1>}
-          <TextAnimated text={text} />
+      <div className="pixel-dialog__container">
+        <div className="pixel-dialog__content">
+          {title && <h1 className="pixel-dialog__title">{title}</h1>}
+          <TextAnimated text={text} onFinished={onTextFinished} />
         </div>
-        <div className="w-full flex justify-end p-2">
+        <div className="pixel-dialog__footer">
           <ArrowDownAnimated />
         </div>
       </div>

@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@layer components {
+  .pixel-dialog {
+    @apply min-w-3xs max-w-lg;
+  }
+
+  .pixel-dialog__container {
+    @apply flex w-full flex-col items-start justify-center;
+  }
+
+  .pixel-dialog__content {
+    @apply px-4 pt-4 min-h-14;
+  }
+
+  .pixel-dialog__title {
+    @apply text-2xl font-bold;
+  }
+
+  .pixel-dialog__footer {
+    @apply w-full flex justify-end p-2;
+  }
+}
