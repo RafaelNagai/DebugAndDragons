@@ -7,7 +7,7 @@ import { PixelDialogContainer } from "./core/components/pixel-dialog/PixelDialog
 function App() {
   return (
     <div className="h-screen w-screen relative">
-      <p>ABC</p>
+      <p className="font-base text-primary">ABCefg abc DEF</p>
       <PixelDialogContainer thickness="7px" color="yellow" className="w-full">
         <div className="p-4">
           <h1>Pixel Dialog</h1>

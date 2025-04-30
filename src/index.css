@@ -1,1 +1,10 @@
 @import "tailwindcss";
+
+@theme {
+  --font-base: "Pixelify Sans", sans-serif;
+  --color-primary: #ff0000;
+}
+
+body {
+  @apply font-base;
+}
