@@ -1,44 +1,89 @@
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 import { PixelContainer } from "../pixel-container/PixelContainer";
 import "./PixelDialog.css";
 
 type PixelDialogProps = {
   thickness?: string;
   color?: string;
-  side?: string;
+  side?: SideScreen;
+  targetId?: string;
   children: ReactNode;
 };
+
+enum SideScreen {
+  LEFT = "left",
+  RIGHT = "right",
+}
 
 export const PixelDialog = ({
   thickness,
   color,
   children,
-  side = "left",
+  targetId,
+  side,
 }: PixelDialogProps) => {
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const [sideScreen, setSideScreen] = useState(side ?? SideScreen.LEFT);
   const sideClass =
-    side === "left" ? "pixel-dialog__root--left" : "pixel-dialog__root--right";
+    sideScreen === SideScreen.LEFT
+      ? "pixel-dialog__root--left"
+      : "pixel-dialog__root--right";
+
+  useEffect(() => {
+    if (targetId) {
+      const targetElement = document.getElementById(targetId);
+      if (targetElement && dialogRef.current) {
+        const rect = targetElement.getBoundingClientRect();
+        const dialogElement = dialogRef.current;
+        if (rect.left < window.innerWidth / 2) {
+          setSideScreen(SideScreen.LEFT);
+        } else {
+          setSideScreen(SideScreen.RIGHT);
+        }
+        if (dialogElement) {
+          dialogElement.setAttribute(
+            "style",
+            `bottom: ${window.innerHeight - rect.y}px; left: ${
+              rect.left +
+              (rect.width / 2) * (rect.left < window.innerWidth / 2 ? 1 : -1)
+            }px;`
+          );
+        }
+        setIsOpen(true);
+      }
+    }
+  }, [targetId, isOpen]);
+
   return (
     <div
-      className="pixel-dialog"
-      style={
-        {
-          "--thickness": thickness,
-          "--color": color,
-        } as React.CSSProperties
-      }
+      ref={dialogRef}
+      className={`pixel-dialog--float ${targetId ? "fixed" : "flex"} ${
+        isOpen ? "" : "hidden"
+      }`}
     >
-      <PixelContainer thickness={thickness} color={color}>
-        {children}
-      </PixelContainer>
       <div
-        className={`pixel-dialog__root ${sideClass}`}
+        className="pixel-dialog"
         style={
           {
             "--thickness": thickness,
             "--color": color,
           } as React.CSSProperties
         }
-      ></div>
+      >
+        <PixelContainer thickness={thickness} color={color}>
+          {children}
+        </PixelContainer>
+        <div
+          className={`pixel-dialog__root ${sideClass}`}
+          style={
+            {
+              "--thickness": thickness,
+              "--color": color,
+            } as React.CSSProperties
+          }
+        ></div>
+      </div>
     </div>
   );
 };

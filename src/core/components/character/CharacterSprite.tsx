@@ -7,6 +7,7 @@ type CharacterSpriteProps = {
   damaged: string;
   dead: string;
   className?: string;
+  id?: string;
 };
 
 enum SpriteState {
@@ -22,13 +23,14 @@ export const CharacterSprite = ({
   damaged,
   dead,
   className = "",
+  id,
 }: CharacterSpriteProps) => {
   const [sprite, setSprite] = useState<SpriteState>(SpriteState.idle);
 
   const showImage = (state: SpriteState) => (sprite === state ? "" : "hidden");
 
   return (
-    <div className={`character-sprite ${className}`}>
+    <div className={`character-sprite ${className}`} id={id}>
       <img
         src={idle}
         alt="Idle Character"

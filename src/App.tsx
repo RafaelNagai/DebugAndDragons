@@ -3,14 +3,9 @@ import { PixelDialog } from "./core/components/pixel-dialog/PixelDialog";
 
 function App() {
   return (
-    <>
-      {/* <PixelContainer thickness="5px" color="blue">
-        <p className="p-2">Your content here</p>
-      </PixelContainer>
-      <PixelContainer thickness="2px" color="#00ff00">
-        <p className="p-2">Your content here</p>
-      </PixelContainer> */}
-      <PixelDialog thickness="7px" color="blue">
+    <div className="h-screen w-screen relative">
+      <p>ABC</p>
+      <PixelDialog thickness="7px" color="blue" targetId="pixel-dialog">
         <div className="p-4">
           <h1>Pixel Dialog</h1>
           <p>This is a pixel dialog example.</p>
@@ -21,9 +16,24 @@ function App() {
         attack={"/characters/warrior/warrior-attack.png"}
         damaged={"/characters/warrior/warrior-damaged.png"}
         dead={"/characters/warrior/warrior-die.png"}
-        className="w-56"
+        className="w-56 h-56 absolute bottom-0 left-0"
+        id="pixel-dialog"
       />
-    </>
+      <PixelDialog thickness="7px" color="red" targetId="second-pixel-dialog">
+        <div className="p-4">
+          <h1>Pixel Dialog</h1>
+          <p>This is a pixel dialog example.</p>
+        </div>
+      </PixelDialog>
+      <CharacterSprite
+        idle={"/characters/warrior/warrior-idle.png"}
+        attack={"/characters/warrior/warrior-attack.png"}
+        damaged={"/characters/warrior/warrior-damaged.png"}
+        dead={"/characters/warrior/warrior-die.png"}
+        className="w-56 h-56 absolute bottom-0 right-0"
+        id="second-pixel-dialog"
+      />
+    </div>
   );
 }
 
