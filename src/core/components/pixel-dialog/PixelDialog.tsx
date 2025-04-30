@@ -42,12 +42,16 @@ export const PixelDialog = ({
           setSideScreen(SideScreen.RIGHT);
         }
         if (dialogElement) {
+          let leftStyle = rect.left < window.innerWidth / 2 ? "left" : "right";
+          let leftStyleValue =
+            rect.left < window.innerWidth / 2
+              ? rect.left +
+                (rect.width / 2) * (rect.left < window.innerWidth / 2 ? 1 : -1)
+              : window.innerWidth - rect.right + rect.width / 2;
           dialogElement.setAttribute(
             "style",
-            `bottom: ${window.innerHeight - rect.y}px; left: ${
-              rect.left +
-              (rect.width / 2) * (rect.left < window.innerWidth / 2 ? 1 : -1)
-            }px;`
+            `bottom: ${window.innerHeight - rect.y}px; 
+            ${leftStyle}: ${leftStyleValue}px;`
           );
         }
       }
