@@ -1,12 +1,13 @@
 import { ReactNode, useEffect, useRef, useState } from "react";
 import { PixelContainer } from "../pixel-container/PixelContainer";
-import "./PixelDialog.css";
+import "./PixelDialogContainer.css";
 
-type PixelDialogProps = {
+type PixelDialogContainerProps = {
   thickness?: string;
   color?: string;
   side?: SideScreen;
   targetId?: string;
+  className?: string;
   children: ReactNode;
 };
 
@@ -15,13 +16,14 @@ enum SideScreen {
   RIGHT = "right",
 }
 
-export const PixelDialog = ({
+export const PixelDialogContainer = ({
   thickness,
   color,
   children,
   targetId,
   side,
-}: PixelDialogProps) => {
+  className,
+}: PixelDialogContainerProps) => {
   const dialogRef = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState(false);
   const [sideScreen, setSideScreen] = useState(side ?? SideScreen.LEFT);
@@ -67,7 +69,7 @@ export const PixelDialog = ({
       }`}
     >
       <div
-        className="pixel-dialog"
+        className={`pixel-dialog ${className}`}
         style={
           {
             "--thickness": thickness,

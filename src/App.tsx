@@ -2,24 +2,28 @@ import {
   CharacterSprite,
   SpriteDirection,
 } from "./core/components/character/CharacterSprite";
-import { PixelDialog } from "./core/components/pixel-dialog/PixelDialog";
+import { PixelDialogContainer } from "./core/components/pixel-dialog/PixelDialogContainer";
 
 function App() {
   return (
     <div className="h-screen w-screen relative">
       <p>ABC</p>
-      <PixelDialog thickness="7px" color="yellow">
+      <PixelDialogContainer thickness="7px" color="yellow" className="w-full">
         <div className="p-4">
           <h1>Pixel Dialog</h1>
           <p>This is a pixel dialog example.</p>
         </div>
-      </PixelDialog>
-      <PixelDialog thickness="7px" color="blue" targetId="pixel-dialog">
+      </PixelDialogContainer>
+      <PixelDialogContainer
+        thickness="7px"
+        color="blue"
+        targetId="pixel-dialog"
+      >
         <div className="p-4">
           <h1>Pixel Dialog</h1>
           <p>This is a pixel dialog example.</p>
         </div>
-      </PixelDialog>
+      </PixelDialogContainer>
       <CharacterSprite
         idle={"/characters/warrior/warrior-idle.png"}
         attack={"/characters/warrior/warrior-attack.png"}
@@ -28,12 +32,16 @@ function App() {
         className="w-56 h-56 absolute bottom-0 left-0"
         id="pixel-dialog"
       />
-      <PixelDialog thickness="7px" color="red" targetId="second-pixel-dialog">
+      <PixelDialogContainer
+        thickness="7px"
+        color="red"
+        targetId="second-pixel-dialog"
+      >
         <div className="p-4">
           <h1>Pixel Dialog</h1>
           <p>This is a pixel dialog example.</p>
         </div>
-      </PixelDialog>
+      </PixelDialogContainer>
       <CharacterSprite
         idle={"/characters/warrior/warrior-idle.png"}
         attack={"/characters/warrior/warrior-attack.png"}
