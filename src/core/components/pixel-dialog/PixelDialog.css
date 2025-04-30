@@ -2,7 +2,7 @@
 
 @layer components {
   .pixel-dialog {
-    @apply min-w-3xs max-w-lg;
+    @apply min-w-3xs max-w-lg z-20;
   }
 
   .pixel-dialog__container {

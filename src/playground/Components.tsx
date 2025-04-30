@@ -2,6 +2,7 @@ import {
   CharacterSprite,
   SpriteDirection,
 } from "../core/components/character/CharacterSprite";
+import { PixelContainer } from "../core/components/pixel-container/PixelContainer";
 import {
   DialogType,
   PixelDialog,
@@ -13,15 +14,33 @@ export const CompoentsPlayground = () => {
   return (
     <div className="h-screen w-screen relative">
       <TextAnimated
-        className="font-base text-primary"
+        className="font-base text-primary h-6"
         text={"Testing animated text component"}
       />
-      <PixelDialogContainer thickness="7px" color="yellow" className="w-full">
-        <div className="p-4">
-          <h1 className="font-bold">TEST FIXED DIALOG</h1>
-          <TextAnimated text={"Look that amazinggg!!"} />
+      <div className="w-full flex flex-row gap-4">
+        <div className="flex-1/2">
+          <PixelContainer color="lightgreen" thickness="10px">
+            <TextAnimated
+              className="font-base p-4 h-24"
+              text={
+                "This is a pixel container component used as a base to build a dialog"
+              }
+            />
+          </PixelContainer>
         </div>
-      </PixelDialogContainer>
+        <div className="flex-1/2">
+          <PixelDialogContainer
+            thickness="7px"
+            color="yellow"
+            className="w-full"
+          >
+            <div className="p-4">
+              <h1 className="font-bold">TEST FIXED DIALOG</h1>
+              <TextAnimated text={"Look that amazinggg!!"} />
+            </div>
+          </PixelDialogContainer>
+        </div>
+      </div>
       <PixelDialog
         targetId="pixel-dialog"
         title="DIALOG COMPONENT"
