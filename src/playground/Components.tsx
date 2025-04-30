@@ -48,7 +48,7 @@ export const CompoentsPlayground = () => {
           "A true dialog component that we can adapt the style and get a callback when finish the text or skip to the next dialog. it is following the character by ID."
         }
         type={DialogType.secondary}
-        onComplete={() => {
+        onSkip={() => {
           console.log("UHUUULLL FINISHED DIALOG!!!");
         }}
       />

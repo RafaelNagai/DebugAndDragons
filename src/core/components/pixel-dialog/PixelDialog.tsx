@@ -10,7 +10,7 @@ type PixelDialogProps = {
   targetId?: string;
   type?: DialogType;
   className?: string;
-  onComplete?: () => void;
+  onSkip?: () => void;
 };
 
 export enum DialogType {
@@ -24,7 +24,7 @@ export const PixelDialog = ({
   targetId,
   type,
   className,
-  onComplete,
+  onSkip,
 }: PixelDialogProps) => {
   const [textDone, setTextDone] = useState(false);
 
@@ -47,7 +47,7 @@ export const PixelDialog = ({
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Enter" || event.key === " ") {
-        if (textDone) onComplete?.();
+        if (textDone) onSkip?.();
       }
     };
     document.addEventListener("keydown", handleKeyDown);
