@@ -3,6 +3,7 @@ import {
   SpriteDirection,
 } from "./core/components/character/CharacterSprite";
 import { PixelDialogContainer } from "./core/components/pixel-dialog/PixelDialogContainer";
+import { TextAnimated } from "./core/components/texts/TextAnimated";
 
 function App() {
   return (
@@ -10,8 +11,8 @@ function App() {
       <p className="font-base text-primary">ABCefg abc DEF</p>
       <PixelDialogContainer thickness="7px" color="yellow" className="w-full">
         <div className="p-4">
-          <h1>Pixel Dialog</h1>
-          <p>This is a pixel dialog example.</p>
+          <h1>Test Relative Position</h1>
+          <TextAnimated text={"hello mother fuck... let's play!"} />
         </div>
       </PixelDialogContainer>
       <PixelDialogContainer
