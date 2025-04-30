@@ -2,6 +2,10 @@ import {
   CharacterSprite,
   SpriteDirection,
 } from "../core/components/character/CharacterSprite";
+import {
+  DialogType,
+  PixelDialog,
+} from "../core/components/pixel-dialog/PixelDialog";
 import { PixelDialogContainer } from "../core/components/pixel-dialog/PixelDialogContainer";
 import { TextAnimated } from "../core/components/texts/TextAnimated";
 
@@ -15,16 +19,12 @@ export const CompoentsPlayground = () => {
           <TextAnimated text={"hello mother fuck... let's play!"} />
         </div>
       </PixelDialogContainer>
-      <PixelDialogContainer
-        thickness="7px"
-        color="blue"
+      <PixelDialog
         targetId="pixel-dialog"
-      >
-        <div className="p-4">
-          <h1>Pixel Dialog</h1>
-          <p>This is a pixel dialog example.</p>
-        </div>
-      </PixelDialogContainer>
+        title="Naga"
+        text={"Aow!! A true component which it will type a random text."}
+        type={DialogType.secondary}
+      />
       <CharacterSprite
         idle={"/characters/warrior/warrior-idle.png"}
         attack={"/characters/warrior/warrior-attack.png"}
