@@ -48,8 +48,8 @@ export const PixelDialog = ({
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Enter" || event.key === " ") {
         if (textDone) {
-          onSkip?.();
           setTextDone(false);
+          onSkip?.();
         }
       }
     };

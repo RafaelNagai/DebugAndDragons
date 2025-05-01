@@ -50,16 +50,19 @@ export const PixelDialogContainer = ({
               ? rect.left +
                 (rect.width / 2) * (rect.left < window.innerWidth / 2 ? 1 : -1)
               : window.innerWidth - rect.right + rect.width / 2;
-          dialogElement.setAttribute(
-            "style",
-            `bottom: ${window.innerHeight - rect.y}px; 
-            ${leftStyle}: ${leftStyleValue}px;`
-          );
+          dialogElement.style.display = "none";
+          setTimeout(() => {
+            dialogElement.setAttribute(
+              "style",
+              `bottom: ${window.innerHeight - rect.y}px; 
+              ${leftStyle}: ${leftStyleValue}px;`
+            );
+          }, 100);
         }
       }
     }
     setIsOpen(true);
-  }, [targetId, isOpen]);
+  }, [targetId]);
 
   return (
     <div

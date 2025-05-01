@@ -15,6 +15,7 @@ export const DialogScene = ({ data, onNextScene }: DialogSceneProps) => {
   return (
     <div className="relative w-[100vw] h-[100vh]">
       <PixelDialog
+        key={data.id}
         targetId={data.targetId}
         title={data.title}
         text={data.text}
