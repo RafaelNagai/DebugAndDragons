@@ -15,7 +15,7 @@ type CharacterSpriteProps = {
   className?: string;
 };
 
-enum SpriteSize {
+export enum SpriteSize {
   big = "big",
   medium = "medium",
   small = "small",

@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 .sprite--small {
-  @apply h-[10vw] w-[10vw];
+  @apply h-[15vw] w-[15vw];
 }
 
 .sprite--medium {
-  @apply h-[25vw] w-[25vw];
+  @apply h-[20vw] w-[20vw];
 }
 
 .sprite--big {
-  @apply h-[30vw] w-[30vw];
+  @apply h-[25vw] w-[25vw];
 }

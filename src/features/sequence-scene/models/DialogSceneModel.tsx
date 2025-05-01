@@ -1,4 +1,5 @@
 import { SpriteState } from "../../../core/components/character/BaseCharacterSprite";
+import { SpriteSize } from "../../../core/components/character/CharacterSprite";
 
 export class DialogSceneModel {
   constructor(
@@ -18,6 +19,7 @@ export class DialogSpriteModel {
   constructor(
     public id: string,
     public sprite: string,
-    public state: SpriteState
+    public state: SpriteState,
+    public size: SpriteSize
   ) {}
 }

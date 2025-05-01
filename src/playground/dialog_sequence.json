@@ -6,8 +6,8 @@
       "data": {
         "targetId": "player",
         "type": "main",
-        "title": "Tamaki",
-        "text": "Oh I am here!",
+        "title": "Javas Cripto",
+        "text": "Oh... it is too boring today",
         "background": "city",
         "left": {
           "id": "player",
@@ -19,16 +19,13 @@
       "id": "2",
       "type": "dialog",
       "data": {
-        "targetId": "enemy",
-        "type": "enemy",
-        "title": "Enemy",
-        "text": "WOW! it is incredible!!!",
+        "targetId": "player",
+        "type": "main",
+        "title": "Javas Cripto",
+        "text": "I will find an enemy in the field...",
+        "background": "city",
         "left": {
           "id": "player",
-          "sprite": "warrior"
-        },
-        "right": {
-          "id": "enemy",
           "sprite": "warrior"
         }
       }
@@ -37,16 +34,13 @@
       "id": "3",
       "type": "dialog",
       "data": {
-        "targetId": "enemy",
-        "type": "secondary",
-        "title": "Enemy",
-        "text": "You can create a sequence of dialogs.",
+        "targetId": "player",
+        "type": "main",
+        "title": "Javas Cripto",
+        "text": "Oxi, nothing here...",
+        "background": "field",
         "left": {
           "id": "player",
-          "sprite": "warrior"
-        },
-        "right": {
-          "id": "enemy",
           "sprite": "warrior"
         }
       }
@@ -55,13 +49,52 @@
       "id": "4",
       "type": "dialog",
       "data": {
+        "targetId": "enemy",
+        "type": "enemy",
+        "title": "Enemy",
+        "text": "Whuahaha... I here to defeat you!!",
+        "left": {
+          "id": "player",
+          "sprite": "warrior"
+        },
+        "right": {
+          "id": "enemy",
+          "sprite": "warrior",
+          "state": "attack"
+        }
+      }
+    },
+    {
+      "id": "5",
+      "type": "dialog",
+      "data": {
         "targetId": "player",
         "type": "main",
-        "title": "Naga",
-        "text": "Now it is time to show my TRUE POWER!!!",
+        "title": "Javas Cripto",
+        "text": "Let's GOOOOO!!!",
+        "left": {
+          "id": "player",
+          "sprite": "warrior",
+          "state": "attack"
+        },
+        "right": {
+          "id": "enemy",
+          "sprite": "warrior",
+          "state": "attack"
+        }
+      }
+    },
+    {
+      "id": "6",
+      "type": "dialog",
+      "data": {
+        "targetId": "player1",
+        "type": "main",
+        "title": "Javas Cripto",
+        "text": "GG easy!!",
 
         "middle": {
-          "id": "player",
+          "id": "player1",
           "sprite": "warrior",
           "state": "attack"
         },

@@ -18,7 +18,7 @@ export const DialogScene = ({ data, onNextScene }: DialogSceneProps) => {
       style={{
         backgroundImage: `url(backgrounds/${
           data.background ?? "field"
-        }_background.png)`,
+        }_background.webp)`,
       }}
     >
       <PixelDialog
@@ -34,6 +34,7 @@ export const DialogScene = ({ data, onNextScene }: DialogSceneProps) => {
           id={data.left.id}
           sprite={data.left.sprite}
           currentState={data.left.state}
+          size={data.left.size}
           className="absolute bottom-[5%] left-[15%]"
         />
       )}
@@ -42,6 +43,7 @@ export const DialogScene = ({ data, onNextScene }: DialogSceneProps) => {
           id={data.middle.id}
           sprite={data.middle.sprite}
           currentState={data.middle.state}
+          size={data.middle.size}
           className="absolute bottom-[5%] left-[40%]"
         />
       )}
@@ -51,6 +53,7 @@ export const DialogScene = ({ data, onNextScene }: DialogSceneProps) => {
           sprite={data.right.sprite}
           direction={SpriteDirection.left}
           currentState={data.right.state}
+          size={data.right.size}
           className="absolute bottom-[5%] right-[15%]"
         />
       )}
