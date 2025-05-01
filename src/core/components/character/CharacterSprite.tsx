@@ -1,73 +1,55 @@
-import { useState } from "react";
+import {
+  BaseCharacterSprite,
+  SpriteDirection,
+  SpriteState,
+} from "./BaseCharacterSprite";
 import "./CharacterSprite.css";
 
 type CharacterSpriteProps = {
-  idle: string;
-  attack: string;
-  damaged: string;
-  dead: string;
-  className?: string;
+  id: string;
+  sprite: string;
+  currentSprite?: SpriteState;
+  size?: SpriteSize;
   direction?: SpriteDirection;
-  id?: string;
 };
 
-export enum SpriteDirection {
-  right,
-  left,
-}
-
-enum SpriteState {
-  idle,
-  attack,
-  damaged,
-  dead,
+enum SpriteSize {
+  big = "big",
+  medium = "medium",
+  small = "small",
 }
 
 export const CharacterSprite = ({
-  idle,
-  attack,
-  damaged,
-  dead,
-  className = "",
-  direction = SpriteDirection.right,
   id,
+  sprite,
+  currentSprite = SpriteState.idle,
+  size = SpriteSize.medium,
+  direction = SpriteDirection.right,
 }: CharacterSpriteProps) => {
-  const [sprite, setSprite] = useState<SpriteState>(SpriteState.idle);
+  let allClassNames = "";
 
-  const showImage = (state: SpriteState) => (sprite === state ? "" : "hidden");
-  const directionStyle =
-    direction === SpriteDirection.right ? "" : "scale-x-[-1]";
+  switch (size) {
+    case SpriteSize.small:
+      allClassNames += " sprite--small";
+      break;
+    case SpriteSize.medium:
+      allClassNames += " sprite--medium";
+      break;
+    case SpriteSize.big:
+      allClassNames += " sprite--big";
+      break;
+  }
 
   return (
-    <div className={`character-sprite ${className}`} id={id}>
-      <img
-        src={idle}
-        alt="Idle Character"
-        className={`character-sprite--idle ${showImage(
-          SpriteState.idle
-        )} ${directionStyle}`}
-      />
-      <img
-        src={attack}
-        alt="Idle Character"
-        className={`character-sprite--attack ${showImage(
-          SpriteState.attack
-        )} ${directionStyle}`}
-      />
-      <img
-        src={damaged}
-        alt="Idle Character"
-        className={`character-sprite--damaged ${showImage(
-          SpriteState.damaged
-        )} ${directionStyle}`}
-      />
-      <img
-        src={dead}
-        alt="Idle Character"
-        className={`character-sprite--dead ${showImage(
-          SpriteState.dead
-        )} ${directionStyle}`}
-      />
-    </div>
+    <BaseCharacterSprite
+      idle={`/characters/${sprite}/${sprite}-idle.png`}
+      attack={`/characters/${sprite}/${sprite}-attack.png`}
+      damaged={`/characters/${sprite}/${sprite}-damaged.png`}
+      dead={`/characters/${sprite}/${sprite}-die.png`}
+      className={`${allClassNames}`}
+      currentSprite={currentSprite}
+      direction={direction}
+      id={id}
+    />
   );
 };

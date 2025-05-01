@@ -5,7 +5,7 @@
       "type": "dialog",
       "data": {
         "targetId": "left",
-        "character": "warrior",
+        "sprite": "warrior",
         "type": "main",
         "title": "Naga",
         "text": "Hey there, I am testing my new dialog system."
@@ -16,7 +16,7 @@
       "type": "dialog",
       "data": {
         "targetId": "left",
-        "character": "warrior",
+        "sprite": "warrior",
         "type": "main",
         "title": "Enemy",
         "text": "Hahaha.. I am here to defeat you!"
@@ -27,7 +27,7 @@
       "type": "dialog",
       "data": {
         "targetId": "right",
-        "character": "warrior",
+        "sprite": "warrior",
         "type": "secondary",
         "title": "Naga",
         "text": "I am hereeee!!"

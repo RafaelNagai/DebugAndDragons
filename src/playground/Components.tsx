@@ -1,7 +1,7 @@
 import {
-  CharacterSprite,
+  BaseCharacterSprite,
   SpriteDirection,
-} from "../core/components/character/CharacterSprite";
+} from "../core/components/character/BaseCharacterSprite";
 import { PixelContainer } from "../core/components/pixel-container/PixelContainer";
 import {
   DialogType,
@@ -52,7 +52,7 @@ export const CompoentsPlayground = () => {
           console.log("UHUUULLL FINISHED DIALOG!!!");
         }}
       />
-      <CharacterSprite
+      <BaseCharacterSprite
         idle={"/characters/warrior/warrior-idle.png"}
         attack={"/characters/warrior/warrior-attack.png"}
         damaged={"/characters/warrior/warrior-damaged.png"}
@@ -74,7 +74,7 @@ export const CompoentsPlayground = () => {
           </p>
         </div>
       </PixelDialogContainer>
-      <CharacterSprite
+      <BaseCharacterSprite
         idle={"/characters/warrior/warrior-idle.png"}
         attack={"/characters/warrior/warrior-attack.png"}
         damaged={"/characters/warrior/warrior-damaged.png"}
