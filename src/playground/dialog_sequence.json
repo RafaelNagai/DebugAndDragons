@@ -64,11 +64,13 @@
         "text": "Now it is time to show my TRUE POWER!!!",
         "middle": {
           "id": "player",
-          "sprite": "warrior"
+          "sprite": "warrior",
+          "state": "attack"
         },
         "right": {
           "id": "enemy",
-          "sprite": "warrior"
+          "sprite": "warrior",
+          "state": "dead"
         }
       }
     }

@@ -18,10 +18,10 @@ export enum SpriteDirection {
 }
 
 export enum SpriteState {
-  idle,
-  attack,
-  damaged,
-  dead,
+  idle = "idle",
+  attack = "attack",
+  damaged = "damaged",
+  dead = "dead",
 }
 
 export const BaseCharacterSprite = ({
@@ -34,9 +34,8 @@ export const BaseCharacterSprite = ({
   direction = SpriteDirection.right,
   id,
 }: BaseCharacterSpriteProps) => {
-  const [sprite] = useState<SpriteState>(currentSprite);
-
-  const showImage = (state: SpriteState) => (sprite === state ? "" : "hidden");
+  const showImage = (state: SpriteState) =>
+    currentSprite === state ? "" : "hidden";
   const directionStyle =
     direction === SpriteDirection.right ? "" : "scale-x-[-1]";
 
@@ -51,21 +50,21 @@ export const BaseCharacterSprite = ({
       />
       <img
         src={attack}
-        alt="Idle Character"
+        alt="Attack Character"
         className={`character-sprite--attack ${showImage(
           SpriteState.attack
         )} ${directionStyle}`}
       />
       <img
         src={damaged}
-        alt="Idle Character"
+        alt="Damaged Character"
         className={`character-sprite--damaged ${showImage(
           SpriteState.damaged
         )} ${directionStyle}`}
       />
       <img
         src={dead}
-        alt="Idle Character"
+        alt="Dead Character"
         className={`character-sprite--dead ${showImage(
           SpriteState.dead
         )} ${directionStyle}`}

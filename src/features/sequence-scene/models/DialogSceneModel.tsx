@@ -1,3 +1,5 @@
+import { SpriteState } from "../../../core/components/character/BaseCharacterSprite";
+
 export class DialogSceneModel {
   constructor(
     public id: string,
@@ -12,5 +14,9 @@ export class DialogSceneModel {
 }
 
 export class DialogSpriteModel {
-  constructor(public id: string, public sprite: string) {}
+  constructor(
+    public id: string,
+    public sprite: string,
+    public state: SpriteState
+  ) {}
 }
