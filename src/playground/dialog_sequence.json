@@ -4,39 +4,33 @@
       "id": "1",
       "type": "dialog",
       "data": {
-        "left": {
-          "targetId": "my-character-id",
-          "character": "warrior",
-          "type": "main",
-          "title": "Naga",
-          "text": "Hey there, I am testing my new dialog system."
-        }
+        "targetId": "left",
+        "character": "warrior",
+        "type": "main",
+        "title": "Naga",
+        "text": "Hey there, I am testing my new dialog system."
       }
     },
     {
       "id": "2",
       "type": "dialog",
       "data": {
-        "left": {
-          "targetId": "enemy-character-id",
-          "character": "warrior",
-          "type": "secondary",
-          "title": "Enemy",
-          "text": "Hahaha.. I am here to defeat you!"
-        }
+        "targetId": "left",
+        "character": "warrior",
+        "type": "secondary",
+        "title": "Enemy",
+        "text": "Hahaha.. I am here to defeat you!"
       }
     },
     {
       "id": "3",
       "type": "dialog",
       "data": {
-        "center": {
-          "targetId": "my-character-id",
-          "character": "warrior",
-          "type": "main",
-          "title": "Naga",
-          "text": "I am hereeee!!"
-        }
+        "targetId": "right",
+        "character": "warrior",
+        "type": "main",
+        "title": "Naga",
+        "text": "I am hereeee!!"
       }
     }
   ]

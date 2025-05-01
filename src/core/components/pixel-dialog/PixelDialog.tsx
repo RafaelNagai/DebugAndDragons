@@ -14,8 +14,8 @@ type PixelDialogProps = {
 };
 
 export enum DialogType {
-  main,
-  secondary,
+  main = "main",
+  secondary = "secondary",
 }
 
 export const PixelDialog = ({
@@ -47,7 +47,10 @@ export const PixelDialog = ({
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Enter" || event.key === " ") {
-        if (textDone) onSkip?.();
+        if (textDone) {
+          onSkip?.();
+          setTextDone(false);
+        }
       }
     };
     document.addEventListener("keydown", handleKeyDown);
