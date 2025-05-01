@@ -4,6 +4,8 @@ import {
   PixelDialog,
 } from "../../core/components/pixel-dialog/PixelDialog";
 import { DialogSceneModel } from "./models/DialogSceneModel";
+import { CharacterSprite } from "../../core/components/character/CharacterSprite";
+import { SpriteDirection } from "../../core/components/character/BaseCharacterSprite";
 
 type DialogSceneProps = {
   data: DialogSceneModel;
@@ -22,18 +24,28 @@ export const DialogScene = ({ data, onNextScene }: DialogSceneProps) => {
         type={data.type as DialogType}
         onSkip={onNextScene}
       />
-      <div
-        id="left"
-        className="h-32 w-32 rounded bg-red-700 absolute bottom-0 left-0"
-      ></div>
-      <div
-        id="middle"
-        className="h-32 w-32 rounded bg-green-700 absolute bottom-0 left-[50%]"
-      ></div>
-      <div
-        id="right"
-        className="h-32 w-32 rounded bg-blue-700 absolute bottom-0 right-0"
-      ></div>
+      {data.left && (
+        <CharacterSprite
+          id={data.left.id}
+          sprite={data.left.sprite}
+          className="absolute bottom-0 left-0"
+        />
+      )}
+      {data.middle && (
+        <CharacterSprite
+          id={data.middle.id}
+          sprite={data.middle.sprite}
+          className="absolute bottom-0 left-[45%]"
+        />
+      )}
+      {data.right && (
+        <CharacterSprite
+          id={data.right.id}
+          sprite={data.right.sprite}
+          direction={SpriteDirection.left}
+          className="absolute bottom-0 right-0"
+        />
+      )}
     </div>
   );
 };

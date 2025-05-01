@@ -4,33 +4,72 @@
       "id": "1",
       "type": "dialog",
       "data": {
-        "targetId": "left",
-        "sprite": "warrior",
+        "targetId": "player",
         "type": "main",
         "title": "Naga",
-        "text": "Hey there, I am testing my new dialog system."
+        "text": "Hey there, I am testing my new dialog system.",
+        "left": {
+          "id": "player",
+          "sprite": "warrior"
+        },
+        "right": {
+          "id": "enemy",
+          "sprite": "warrior"
+        }
       }
     },
     {
       "id": "2",
       "type": "dialog",
       "data": {
-        "targetId": "left",
-        "sprite": "warrior",
-        "type": "main",
+        "targetId": "enemy",
+        "type": "secondary",
         "title": "Enemy",
-        "text": "Hahaha.. I am here to defeat you!"
+        "text": "WOW! it is incredible!!!",
+        "left": {
+          "id": "player",
+          "sprite": "warrior"
+        },
+        "right": {
+          "id": "enemy",
+          "sprite": "warrior"
+        }
       }
     },
     {
       "id": "3",
       "type": "dialog",
       "data": {
-        "targetId": "right",
-        "sprite": "warrior",
+        "targetId": "enemy",
         "type": "secondary",
+        "title": "Enemy",
+        "text": "You can create a sequence of dialogs.",
+        "left": {
+          "id": "player",
+          "sprite": "warrior"
+        },
+        "right": {
+          "id": "enemy",
+          "sprite": "warrior"
+        }
+      }
+    },
+    {
+      "id": "4",
+      "type": "dialog",
+      "data": {
+        "targetId": "player",
+        "type": "main",
         "title": "Naga",
-        "text": "I am hereeee!!"
+        "text": "Now it is time to show my TRUE POWER!!!",
+        "middle": {
+          "id": "player",
+          "sprite": "warrior"
+        },
+        "right": {
+          "id": "enemy",
+          "sprite": "warrior"
+        }
       }
     }
   ]

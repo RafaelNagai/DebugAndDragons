@@ -11,6 +11,7 @@ type CharacterSpriteProps = {
   currentSprite?: SpriteState;
   size?: SpriteSize;
   direction?: SpriteDirection;
+  className?: string;
 };
 
 enum SpriteSize {
@@ -25,6 +26,7 @@ export const CharacterSprite = ({
   currentSprite = SpriteState.idle,
   size = SpriteSize.medium,
   direction = SpriteDirection.right,
+  className,
 }: CharacterSpriteProps) => {
   let allClassNames = "";
 
@@ -46,7 +48,7 @@ export const CharacterSprite = ({
       attack={`/characters/${sprite}/${sprite}-attack.png`}
       damaged={`/characters/${sprite}/${sprite}-damaged.png`}
       dead={`/characters/${sprite}/${sprite}-die.png`}
-      className={`${allClassNames}`}
+      className={`${allClassNames} ${className}`}
       currentSprite={currentSprite}
       direction={direction}
       id={id}
