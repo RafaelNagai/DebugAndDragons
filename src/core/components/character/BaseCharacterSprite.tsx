@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./BaseCharacterSprite.css";
 
 type BaseCharacterSpriteProps = {
@@ -34,40 +33,28 @@ export const BaseCharacterSprite = ({
   direction = SpriteDirection.right,
   id,
 }: BaseCharacterSpriteProps) => {
-  const showImage = (state: SpriteState) =>
-    currentSprite === state ? "" : "hidden";
   const directionStyle =
     direction === SpriteDirection.right ? "" : "scale-x-[-1]";
+
+  const img = () => {
+    switch (currentSprite) {
+      case SpriteState.idle:
+        return idle;
+      case SpriteState.attack:
+        return attack;
+      case SpriteState.damaged:
+        return damaged;
+      case SpriteState.dead:
+        return dead;
+    }
+  };
 
   return (
     <div className={`character-sprite ${className}`} id={id}>
       <img
-        src={idle}
+        src={img()}
         alt="Idle Character"
-        className={`character-sprite--idle ${showImage(
-          SpriteState.idle
-        )} ${directionStyle}`}
-      />
-      <img
-        src={attack}
-        alt="Attack Character"
-        className={`character-sprite--attack ${showImage(
-          SpriteState.attack
-        )} ${directionStyle}`}
-      />
-      <img
-        src={damaged}
-        alt="Damaged Character"
-        className={`character-sprite--damaged ${showImage(
-          SpriteState.damaged
-        )} ${directionStyle}`}
-      />
-      <img
-        src={dead}
-        alt="Dead Character"
-        className={`character-sprite--dead ${showImage(
-          SpriteState.dead
-        )} ${directionStyle}`}
+        className={`character-sprite--idle ${directionStyle}`}
       />
     </div>
   );
