@@ -17,7 +17,7 @@
       "data": {
         "targetId": "left",
         "character": "warrior",
-        "type": "secondary",
+        "type": "main",
         "title": "Enemy",
         "text": "Hahaha.. I am here to defeat you!"
       }
@@ -28,7 +28,7 @@
       "data": {
         "targetId": "right",
         "character": "warrior",
-        "type": "main",
+        "type": "secondary",
         "title": "Naga",
         "text": "I am hereeee!!"
       }
