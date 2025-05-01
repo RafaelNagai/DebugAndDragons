@@ -13,8 +13,6 @@ type DialogSceneProps = {
 };
 
 export const DialogScene = ({ data, onNextScene }: DialogSceneProps) => {
-  useEffect(() => {}, [data]);
-
   return (
     <div className="relative w-[100vw] h-[100vh]">
       <PixelDialog
