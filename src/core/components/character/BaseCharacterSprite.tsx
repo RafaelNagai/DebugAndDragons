@@ -50,12 +50,11 @@ export const BaseCharacterSprite = ({
   };
 
   return (
-    <div className={`character-sprite ${className}`} id={id}>
-      <img
-        src={img()}
-        alt="Idle Character"
-        className={`character-sprite--idle ${directionStyle}`}
-      />
-    </div>
+    <img
+      src={img()}
+      alt="Idle Character"
+      className={`character-sprite ${className} ${directionStyle}`}
+      id={id}
+    />
   );
 };

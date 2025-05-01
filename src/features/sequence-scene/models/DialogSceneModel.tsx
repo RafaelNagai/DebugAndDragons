@@ -7,6 +7,7 @@ export class DialogSceneModel {
     public type: string,
     public title: string,
     public text: string,
+    public background?: string,
     public left?: DialogSpriteModel,
     public middle?: DialogSpriteModel,
     public right?: DialogSpriteModel

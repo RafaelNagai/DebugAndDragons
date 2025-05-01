@@ -12,7 +12,6 @@ type CharacterSpriteProps = {
   currentState?: SpriteState;
   size?: SpriteSize;
   direction?: SpriteDirection;
-  ground?: GroundType;
   className?: string;
 };
 
@@ -29,21 +28,17 @@ export const CharacterSprite = ({
   size = SpriteSize.medium,
   direction = SpriteDirection.right,
   className,
-  ground = GroundType.grass,
 }: CharacterSpriteProps) => {
   return (
-    <div className={`sprite--${size}`}>
-      <BaseCharacterSprite
-        idle={`/characters/${sprite}/${sprite}-idle.png`}
-        attack={`/characters/${sprite}/${sprite}-attack.png`}
-        damaged={`/characters/${sprite}/${sprite}-damaged.png`}
-        dead={`/characters/${sprite}/${sprite}-die.png`}
-        className={`sprite--${size} ${className}`}
-        currentSprite={currentState}
-        direction={direction}
-        id={id}
-      />
-      {/* <BaseGround type={ground} className="absolute bottom-0 left-0" /> */}
-    </div>
+    <BaseCharacterSprite
+      idle={`/characters/${sprite}/${sprite}-idle.png`}
+      attack={`/characters/${sprite}/${sprite}-attack.png`}
+      damaged={`/characters/${sprite}/${sprite}-damaged.png`}
+      dead={`/characters/${sprite}/${sprite}-die.png`}
+      className={`sprite--${size} ${className}`}
+      currentSprite={currentState}
+      direction={direction}
+      id={id}
+    />
   );
 };

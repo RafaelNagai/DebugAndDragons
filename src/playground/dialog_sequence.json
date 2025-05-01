@@ -8,6 +8,7 @@
         "type": "main",
         "title": "Tamaki",
         "text": "Oh I am here!",
+        "background": "city",
         "left": {
           "id": "player",
           "sprite": "warrior"

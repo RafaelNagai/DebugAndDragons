@@ -13,7 +13,14 @@ type DialogSceneProps = {
 
 export const DialogScene = ({ data, onNextScene }: DialogSceneProps) => {
   return (
-    <div className="relative w-[100vw] h-[100vh]">
+    <div
+      className="relative w-[100vw] h-[100vh] bg-bottom bg-cover"
+      style={{
+        backgroundImage: `url(backgrounds/${
+          data.background ?? "field"
+        }_background.png)`,
+      }}
+    >
       <PixelDialog
         key={data.id}
         targetId={data.targetId}
@@ -27,7 +34,7 @@ export const DialogScene = ({ data, onNextScene }: DialogSceneProps) => {
           id={data.left.id}
           sprite={data.left.sprite}
           currentState={data.left.state}
-          className="absolute bottom-0 left-0"
+          className="absolute bottom-[5%] left-[15%]"
         />
       )}
       {data.middle && (
@@ -35,7 +42,7 @@ export const DialogScene = ({ data, onNextScene }: DialogSceneProps) => {
           id={data.middle.id}
           sprite={data.middle.sprite}
           currentState={data.middle.state}
-          className="absolute bottom-0 left-[45%]"
+          className="absolute bottom-[5%] left-[40%]"
         />
       )}
       {data.right && (
@@ -44,7 +51,7 @@ export const DialogScene = ({ data, onNextScene }: DialogSceneProps) => {
           sprite={data.right.sprite}
           direction={SpriteDirection.left}
           currentState={data.right.state}
-          className="absolute bottom-0 right-0"
+          className="absolute bottom-[5%] right-[15%]"
         />
       )}
     </div>
