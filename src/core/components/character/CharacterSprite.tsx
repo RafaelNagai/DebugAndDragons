@@ -8,7 +8,7 @@ import "./CharacterSprite.css";
 type CharacterSpriteProps = {
   id: string;
   sprite: string;
-  currentSprite?: SpriteState;
+  currentState?: SpriteState;
   size?: SpriteSize;
   direction?: SpriteDirection;
   className?: string;
@@ -23,7 +23,7 @@ enum SpriteSize {
 export const CharacterSprite = ({
   id,
   sprite,
-  currentSprite = SpriteState.idle,
+  currentState = SpriteState.idle,
   size = SpriteSize.medium,
   direction = SpriteDirection.right,
   className,
@@ -49,7 +49,7 @@ export const CharacterSprite = ({
       damaged={`/characters/${sprite}/${sprite}-damaged.png`}
       dead={`/characters/${sprite}/${sprite}-die.png`}
       className={`${allClassNames} ${className}`}
-      currentSprite={currentSprite}
+      currentSprite={currentState}
       direction={direction}
       id={id}
     />

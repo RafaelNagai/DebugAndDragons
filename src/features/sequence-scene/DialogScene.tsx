@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import {
   DialogType,
   PixelDialog,
@@ -26,7 +25,7 @@ export const DialogScene = ({ data, onNextScene }: DialogSceneProps) => {
         <CharacterSprite
           id={data.left.id}
           sprite={data.left.sprite}
-          currentSprite={data.left.state}
+          currentState={data.left.state}
           className="absolute bottom-0 left-0"
         />
       )}
@@ -34,7 +33,7 @@ export const DialogScene = ({ data, onNextScene }: DialogSceneProps) => {
         <CharacterSprite
           id={data.middle.id}
           sprite={data.middle.sprite}
-          currentSprite={data.middle.state}
+          currentState={data.middle.state}
           className="absolute bottom-0 left-[45%]"
         />
       )}
@@ -43,7 +42,7 @@ export const DialogScene = ({ data, onNextScene }: DialogSceneProps) => {
           id={data.right.id}
           sprite={data.right.sprite}
           direction={SpriteDirection.left}
-          currentSprite={data.right.state}
+          currentState={data.right.state}
           className="absolute bottom-0 right-0"
         />
       )}
