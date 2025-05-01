@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@layer components {
+  .ground {
+    @apply w-full h-[20%] bg-no-repeat;
+  }
+}

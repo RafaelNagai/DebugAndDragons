@@ -6,14 +6,10 @@
       "data": {
         "targetId": "player",
         "type": "main",
-        "title": "Naga",
-        "text": "Hey there, I am testing my new dialog system.",
+        "title": "Tamaki",
+        "text": "Oh I am here!",
         "left": {
           "id": "player",
-          "sprite": "warrior"
-        },
-        "right": {
-          "id": "enemy",
           "sprite": "warrior"
         }
       }
@@ -23,7 +19,7 @@
       "type": "dialog",
       "data": {
         "targetId": "enemy",
-        "type": "secondary",
+        "type": "enemy",
         "title": "Enemy",
         "text": "WOW! it is incredible!!!",
         "left": {
@@ -62,6 +58,7 @@
         "type": "main",
         "title": "Naga",
         "text": "Now it is time to show my TRUE POWER!!!",
+
         "middle": {
           "id": "player",
           "sprite": "warrior",

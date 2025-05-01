@@ -1,3 +1,4 @@
+import { BaseGround, GroundType } from "../ground/BaseGround";
 import {
   BaseCharacterSprite,
   SpriteDirection,
@@ -11,6 +12,7 @@ type CharacterSpriteProps = {
   currentState?: SpriteState;
   size?: SpriteSize;
   direction?: SpriteDirection;
+  ground?: GroundType;
   className?: string;
 };
 
@@ -27,31 +29,21 @@ export const CharacterSprite = ({
   size = SpriteSize.medium,
   direction = SpriteDirection.right,
   className,
+  ground = GroundType.grass,
 }: CharacterSpriteProps) => {
-  let allClassNames = "";
-
-  switch (size) {
-    case SpriteSize.small:
-      allClassNames += " sprite--small";
-      break;
-    case SpriteSize.medium:
-      allClassNames += " sprite--medium";
-      break;
-    case SpriteSize.big:
-      allClassNames += " sprite--big";
-      break;
-  }
-
   return (
-    <BaseCharacterSprite
-      idle={`/characters/${sprite}/${sprite}-idle.png`}
-      attack={`/characters/${sprite}/${sprite}-attack.png`}
-      damaged={`/characters/${sprite}/${sprite}-damaged.png`}
-      dead={`/characters/${sprite}/${sprite}-die.png`}
-      className={`${allClassNames} ${className}`}
-      currentSprite={currentState}
-      direction={direction}
-      id={id}
-    />
+    <div className={`sprite--${size}`}>
+      <BaseCharacterSprite
+        idle={`/characters/${sprite}/${sprite}-idle.png`}
+        attack={`/characters/${sprite}/${sprite}-attack.png`}
+        damaged={`/characters/${sprite}/${sprite}-damaged.png`}
+        dead={`/characters/${sprite}/${sprite}-die.png`}
+        className={`sprite--${size} ${className}`}
+        currentSprite={currentState}
+        direction={direction}
+        id={id}
+      />
+      {/* <BaseGround type={ground} className="absolute bottom-0 left-0" /> */}
+    </div>
   );
 };

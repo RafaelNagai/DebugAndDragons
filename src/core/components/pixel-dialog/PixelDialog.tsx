@@ -16,6 +16,7 @@ type PixelDialogProps = {
 export enum DialogType {
   main = "main",
   secondary = "secondary",
+  enemy = "enemy",
 }
 
 export const PixelDialog = ({
@@ -38,6 +39,9 @@ export const PixelDialog = ({
       baseColor = rootStyles
         .getPropertyValue("--color-secondary-dialog")
         .trim();
+      break;
+    case DialogType.enemy:
+      baseColor = rootStyles.getPropertyValue("--color-enemy-dialog").trim();
       break;
     default:
       baseColor = rootStyles.getPropertyValue("--color-main-dialog").trim();
