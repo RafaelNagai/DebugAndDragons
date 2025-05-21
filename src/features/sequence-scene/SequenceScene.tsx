@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ScenarioModel } from "./models/ScenarioModel";
-import { DialogScene } from "./DialogScene";
+import { DialogScene } from "./scenes/DialogScene";
+import { BattleScene } from "./scenes/BattleScene";
 
 type ScenarioSequenceProps = {
   scenarios: ScenarioModel<any>[];
@@ -16,6 +17,9 @@ export const ScenarioSequence = ({ scenarios }: ScenarioSequenceProps) => {
     <div className="relative w-[100vw] h-[100vh]">
       {scenario.type === "dialog" && (
         <DialogScene data={scenario.data} onNextScene={onNextScene} />
+      )}
+      {scenario.type === "battle" && (
+        <BattleScene data={scenario.data} onNextScene={onNextScene} />
       )}
     </div>
   );

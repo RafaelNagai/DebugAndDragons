@@ -1,10 +1,12 @@
 import {
   DialogType,
   PixelDialog,
-} from "../../core/components/pixel-dialog/PixelDialog";
-import { DialogSceneModel } from "./models/DialogSceneModel";
-import { CharacterSprite } from "../../core/components/character/CharacterSprite";
-import { SpriteDirection } from "../../core/components/character/BaseCharacterSprite";
+} from "../../../core/components/pixel-dialog/PixelDialog";
+import { DialogSceneModel } from "../models/DialogSceneModel";
+import { CharacterSprite } from "../../../core/components/character/CharacterSprite";
+import { SpriteDirection } from "../../../core/components/character/BaseCharacterSprite";
+import "./Scene.css";
+import { SceneBackground } from "../components/scene-background/SceneBackground";
 
 type DialogSceneProps = {
   data: DialogSceneModel;
@@ -13,14 +15,7 @@ type DialogSceneProps = {
 
 export const DialogScene = ({ data, onNextScene }: DialogSceneProps) => {
   return (
-    <div
-      className="relative w-[100vw] h-[100vh] bg-bottom bg-cover"
-      style={{
-        backgroundImage: `url(backgrounds/${
-          data.background ?? "field"
-        }_background.webp)`,
-      }}
-    >
+    <SceneBackground background={data.background}>
       <PixelDialog
         key={data.id}
         targetId={data.targetId}
@@ -35,7 +30,7 @@ export const DialogScene = ({ data, onNextScene }: DialogSceneProps) => {
           sprite={data.left.sprite}
           currentState={data.left.state}
           size={data.left.size}
-          className="absolute bottom-[5%] left-[15%]"
+          className="character-left"
         />
       )}
       {data.middle && (
@@ -44,7 +39,7 @@ export const DialogScene = ({ data, onNextScene }: DialogSceneProps) => {
           sprite={data.middle.sprite}
           currentState={data.middle.state}
           size={data.middle.size}
-          className="absolute bottom-[5%] left-[40%]"
+          className="character-center"
         />
       )}
       {data.right && (
@@ -54,9 +49,9 @@ export const DialogScene = ({ data, onNextScene }: DialogSceneProps) => {
           direction={SpriteDirection.left}
           currentState={data.right.state}
           size={data.right.size}
-          className="absolute bottom-[5%] right-[15%]"
+          className="character-right"
         />
       )}
-    </div>
+    </SceneBackground>
   );
 };

@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+.character-left {
+  @apply absolute bottom-[5%] left-[15%];
+}
+
+.character-center {
+  @apply absolute bottom-[5%] left-[40%];
+}
+
+.character-right {
+  @apply absolute bottom-[5%] right-[15%];
+}

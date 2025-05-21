@@ -86,6 +86,17 @@
     },
     {
       "id": "6",
+      "type": "battle",
+      "data": {
+        "enemy": {
+          "name": "Godofreudo",
+          "maxLife": 1000,
+          "sprite": "warrior"
+        }
+      }
+    },
+    {
+      "id": "7",
       "type": "dialog",
       "data": {
         "targetId": "player1",
